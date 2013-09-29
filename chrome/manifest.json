@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube autoplay lock",
+  "description": "This extension blocks autoplay videos from youtube.",
+  "version": "1.0",
+
+  "icons": { "16": "icon16.png",
+             "48": "icon48.png",
+            "128": "icon128.png" },
+
+  "web_accessible_resources": [
+    "jquery.min.js", "url.js"
+  ],
+  "permissions": [
+    "background"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [ {
+    "js": [ "jquery.min.js", "url.js", "contentscript.js" ],
+    "matches": [ "http://*/*", "https://*/*"]
+  }],
+  "options_page": "options.html"
+}
